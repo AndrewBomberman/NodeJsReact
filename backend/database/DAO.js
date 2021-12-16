@@ -1,22 +1,17 @@
-import { ObjectID } from "bson";
 import DATABASE from "./DATABASE.js";
 export default class DAO{
     static async connect(){
         this.db = await DATABASE.connect();
     }
     static async get(request){
-        console.log(request);
-        
         let list,cases=0,deaths=0,results;
         if(request.cases){
             if(request.state || request.date || request.deaths){
                 list = await this.db.find(request).limit(20).toArray();
             }
             else{
-                console.log(request.cases);
                 list =  await this.db.distinct("state",{"$expr" : {"$gt" : [{"$toInt" :"$cases"} , parseInt(request.cases,10)]}});
                 results = list.length;
-
             }
         }
         else if(request.state){
@@ -42,7 +37,7 @@ export default class DAO{
             date:request.date ? request.date:request.date ? request.date:null,
             cases:cases ? cases:request.cases ? request.cases:null,
             deaths:deaths ? deaths:request.deaths ? request.deaths:null,
-            list:list?list:[],
+            list:list ? list:[],
         };
         return response;
     }
@@ -50,13 +45,9 @@ export default class DAO{
         return await this.db.insertOne(request);
     }
     static async delete(id){
-        console.log(id);
        return await this.db.deleteOne({"_id" :id});
     }
     static async update(id,request){
-        console.log("DAO update");
-        console.log(id);
-        console.log(request);
         return await this.db.updateOne({"_id":id},{$set:request});
     }
 
