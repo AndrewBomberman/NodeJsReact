@@ -2,7 +2,7 @@ import Model from "../models/Model.js"
 import DAO from "../database/DAO.js"
 
 /*
-    The role of the Repository is to link the Controller to the DAO (Database Access Object) and the Model and vice-versa.
+    The role of the Repository is to link the Controller to the DAO (Data Access Object) and the Model.
 
     1. The requests are passed from the Controller to the DAO through the Repository 
     2. The DAO solves the request and the requested data is passed back to the repository

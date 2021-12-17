@@ -11,7 +11,8 @@ export default class Data extends React.Component {
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="card bg-dark">
-                            {this.props.data.results && <div class="card-header text-light text-center">Total Search Results:{this.props.data.results}</div>}
+                        <div class="card-header text-light text-center">Search Results:{this.props.data.results}</div>
+                            {this.props.data.results}
                                 <div className="card-body">
                                     <p className="card-text">
                                         <ul class="list-group list-group-flush">

@@ -19,19 +19,20 @@ export default class DAO{
             Configures the response which is sent back to the Repository.
         */ 
 
-        let list, cases=0, deaths=0, results; // Initializes the Response variables.
+        let list,cases=0, deaths=0 ,results; // Initializes the Response variables.
 
         if(request.cases){
             // If the request contains "cases" checks if there's another query.
             if(request.state || request.date || request.deaths){
                 // If the query also contains one of the above variables the follwing query will be resolved.
                 list = await this.db.find(request).limit(20).toArray(); // Retreives the first 20 results from the DATABASE in form of an array.
+                results = await this.db.countDocuments(request); // Counts the total results found 
             }
             else{
 
                 //If the query has only "cases" then this query will be resolved.
                 // Retreives all the distinct states with the number of covid cases greater than the value passed in the request.
-                list =  await this.db.distinct("state",{"$expr" : {"$gt" : [{"$toInt" :"$cases"} , parseInt(request.cases,10)]}});
+                list =  await (await this.db.distinct("state",{"$expr" : {"$gt" : [{"$toInt" :"$cases"} , parseInt(request.cases,10)]}}));
                 results = list.length; // Gets the total number of states
             }
         }
@@ -41,6 +42,7 @@ export default class DAO{
             if(request.date || request.date || request.deaths){
                 // If the query also contains one of the above variables the follwing query will be resolved.
                 list =  await this.db.find(request).limit(20).toArray(); // Retreives the first 20 results from the DATABASE in form of an array.
+                results = await this.db.countDocuments(request); // Counts the total results found 
             }
             else{
                 //If the query has only "state" then this query will be resolved.

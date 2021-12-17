@@ -1,5 +1,4 @@
 import { ObjectID } from "bson";
-
 /*
     The Model converts the requested data into querialbe data.
 
@@ -10,7 +9,6 @@ import { ObjectID } from "bson";
     4. Checks if the request has cases sets them if so or sets the value 0 otherwise
     5. Checks if the request has deaths sets them if so or sets the value 0 otherwise
 */
-
 export default class Model {
     constructor(request){
         return { 
@@ -31,7 +29,6 @@ export default class Model {
     }
     static getData(request){
         const model = new Model(request); // Creates a new model
-
         // Returns the Model data
         return {
             state:model.state,

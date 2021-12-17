@@ -2,7 +2,7 @@ import mongodb from "mongodb";
 export default class DATABASE {
 
     /*
-        The DATABASE is the place where the data is retreived from the server and passed to the DAO (Database Access Object)
+        The DATABASE is the place where the data is retreived from the server and passed to the DAO (Data Access Object)
 
         1. The Client connects to the specified URL
         2. The requested Database is retreived
