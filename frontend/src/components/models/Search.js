@@ -98,7 +98,7 @@ export default class Search extends React.Component {
                                     <option value="Wisconsin">Wisconsin</option>
                                     <option value="Wyoming">Wyoming</option>  
                                 </select>
-                                <div classname="form-floating mb-3">
+                                <div className="form-floating mb-3">
                                     <input type="date" class="form-control" id="floatingInput" placeholder="Date" name="date" onChange={(e)=>this.handleOnChange(e.target.name,e.target.value)}/>
                                     <label for="floatingInput">Select Date:</label>
                                 </div>
