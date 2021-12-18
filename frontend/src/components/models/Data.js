@@ -12,7 +12,6 @@ export default class Data extends React.Component {
                     <div className="col-lg-12">
                         <div className="card bg-dark">
                         <div class="card-header text-light text-center">Search Results:{this.props.data.results}</div>
-                            {this.props.data.results}
                                 <div className="card-body">
                                     <p className="card-text">
                                         <ul class="list-group list-group-flush">
