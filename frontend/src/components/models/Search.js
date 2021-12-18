@@ -40,7 +40,7 @@ export default class Search extends React.Component {
                     <div className="card-body">
                         <form onSubmit={this.handleSubmit}>
                             <p className="card-text">
-                                <select class="form-select" aria-label="Default select example" name="state" onChange={(e)=>this.handleOnChange(e.target.name,e.target.value)}>
+                                <select className="form-select" aria-label="Default select example" name="state" onChange={(e)=>this.handleOnChange(e.target.name,e.target.value)}>
                                     <option selected>Select State</option>
                                     <option value="Alabama">Alabama</option>
                                     <option value="Alaska">Alaska</option>
@@ -98,21 +98,21 @@ export default class Search extends React.Component {
                                     <option value="Wisconsin">Wisconsin</option>
                                     <option value="Wyoming">Wyoming</option>  
                                 </select>
-                                <div class="form-floating mb-3">
+                                <div classname="form-floating mb-3">
                                     <input type="date" class="form-control" id="floatingInput" placeholder="Date" name="date" onChange={(e)=>this.handleOnChange(e.target.name,e.target.value)}/>
                                     <label for="floatingInput">Select Date:</label>
                                 </div>
                                 
-                                <div class="form-floating mb-3">
+                                <div className="form-floating mb-3">
                                     <input type="number" min= "0"class="form-control" id="floatingInput" placeholder="Cases" name="cases" onChange={(e)=>this.handleOnChange(e.target.name,e.target.value)}/>
                                     <label for="floatingInput">Input Cases:</label>
                                 </div>
-                                <div class="form-floating mb-3">
+                                <div className="form-floating mb-3">
                                     <input type="number" min= "0"class="form-control" id="floatingInput" placeholder="Deaths" name="deaths" onChange={(e)=>this.handleOnChange(e.target.name,e.target.value)}/>
                                     <label for="floatingInput">Input Deaths:</label>
                                 </div>
                             </p>
-                            <button className="btn btn-dark" >Search</button>
+                            <button className="btn btn-dark">Search</button>
                         </form>
                     </div> 
                 </div>
