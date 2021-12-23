@@ -7,14 +7,16 @@ export default class Search extends React.Component {
         this.state = {inputData:[]};
     }
     handleOnChange (key,value) {
+       const inputData = this.state.inputData;
         // This function is triggered when a data is changed in the search form
-        const inputData = []; // Creates the query array
+        // Creates the query array
         if(key === "date"){
             value = new Date(value).toLocaleDateString('en-GB'); // Converts the date into local date
-            inputData[key] = value; 
+            inputData[key] = value;
         }
         inputData[key] = value;
-        this.setState({inputData:inputData}); // Sets the Search component state with the query
+        this.setState({inputData:inputData});
+        
     }
     handleSubmit (e) {
         
