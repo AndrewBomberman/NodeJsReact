@@ -3,8 +3,8 @@ import List from "../models/List.js";
 export default class Data extends React.Component {
     constructor(props) {
         super(props);
-        console.log(props);
     }
+    // This component renders the results of the user's seaarch
     render() {
         return(
             <div className="Data">

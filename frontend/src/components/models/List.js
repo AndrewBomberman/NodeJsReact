@@ -1,10 +1,8 @@
 import React from "react";
 import Model from "../models/Model.js";
 export default class List extends React.Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
+        // Renders the list component
         return (
             <div className = "row">
                 {this.props.list.map(model => {

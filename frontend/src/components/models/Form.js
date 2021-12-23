@@ -4,27 +4,28 @@ function Form(){
     const [date,setDate] = useState();
     const [cases,setCases] = useState();
     const [deaths,setDeaths] = useState();
+    // Submits the data from the form to the server
     const handleSubmit = (e) => {
-        e.preventDefault();
-        const localdate = new Date(date).toLocaleDateString('en-GB');
-        const data = {
+        e.preventDefault();//Prevents the page from refreshing
+        const localdate = new Date(date).toLocaleDateString('en-GB');//Converts the data into local data
+        const data = { //Creates a data object
             "state":state, 
             "date":localdate, 
             "cases":cases, 
             "deaths":deaths 
         };
-        console.log(data);
-        e.target.reset();
-        fetch('http://localhost:8000/api/home',{
+        e.target.reset(); // Resets ther form data 
+        fetch('http://localhost:8000/api/home',{ // Fetches the POST route from the server
             method: 'POST',
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
-        }).then( async (response) => {
-            let res = response;
-            console.log(res);
+            body: JSON.stringify(data) // Converts the data object into a JSON object and submits the data to the server
+        }).then( async (response) => { // Gets back the response
+            let res = response; 
+            console.log(res); // Sends the response back to the user
         });
     }
     return(
+        // Renders the form component
         <div className="Form">
             <div className="card bg-primary">
                 <div class="card-header text-light text-center">Add</div>

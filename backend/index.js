@@ -12,6 +12,6 @@ import DAO from "./database/DAO.js";
 dotenv.config();
 const port = process.env.PORT || 6000; //Checks if the specifoed port is available and connects to is or connects to port 6000 otherise
 server.listen(port, async ()=>{ // The server listens to the port
-    await DAO.connect(); // The DAO is connecting
+    await DAO.connect();
     console.log("listening to port " + port); // The successful connection message is displayed after the connection has been established
 });

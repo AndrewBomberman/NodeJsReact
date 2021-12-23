@@ -7,32 +7,35 @@ export default class Search extends React.Component {
         this.state = {inputData:[]};
     }
     handleOnChange (key,value) {
-        if(key=="date"){
-            value = new Date(value).toLocaleDateString('en-GB');
-            this.state.inputData[key]= value;
+        // This function is triggered when a data is changed in the search form
+        const inputData = []; // Creates the query array
+        if(key === "date"){
+            value = new Date(value).toLocaleDateString('en-GB'); // Converts the date into local date
+            inputData[key] = value; 
         }
-        this.state.inputData[key]=value;
-        console.log(this.state.inputData);
+        inputData[key] = value;
+        this.setState({inputData:inputData}); // Sets the Search component state with the query
     }
     handleSubmit (e) {
         
-        e.preventDefault();
+        e.preventDefault(); // Prevents the page from refreshing
         
-        let request = 'http://localhost:8000/api/home?';
-        for (const [key, value] of Object.entries(this.state.inputData)) {
+        let request = 'http://localhost:8000/api/home?'; // Gets the route from the server
+        for (const [key, value] of Object.entries(this.state.inputData)) { // Creates the front-end query
           if(value){
             request+=key+'='+value+'&'
           }
         }
-        this.setState({inputData:[]});
-        e.target.reset();
         (async () => {
-            let response = await fetch(request);
-            response = await response.json();
-            this.props.searchResults(response);
+            let response = await fetch(request); // Receives the response from the server regarding the submitted query
+            response = await response.json(); // Converts the response into a JSON object
+            this.props.searchResults(response); // Sends the response back to the user
         })();
+        this.setState({inputData:[]}); // Resets the query
+        e.target.reset(); // Resets the Search form
     }
     render() {
+        // Renders the Search component with the fetched data
         return(
             <div className="Search">
                 <div className="card bg-success">

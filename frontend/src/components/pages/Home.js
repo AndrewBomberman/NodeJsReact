@@ -10,10 +10,11 @@ export default class Home extends React.Component {
         this.searchAndSetResults = this.searchAndSetResults.bind(this);
     }
     componentDidMount(){
+        // Fetches the data
         fetch("http://localhost:8000/api/home")
         .then(res => res.json()).then((result) => {
             this.setState({isLoaded: true,data:result,error:null});
-        })
+        }) // Sets the data 
         .catch(error=>
             {this.setState({isLoaded: true,data:null,error:error});
         })
@@ -21,9 +22,11 @@ export default class Home extends React.Component {
     componentDidUpdate(){}
 
     searchAndSetResults(data){
+        // Sets the data of the home component with the data received when a serach is submitted
        this.setState({data:data})
     }
     render(){
+        // Renders the Home page component and all it's subcomponents
         if(this.state.data){
             return(
                 <div className="Home">

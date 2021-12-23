@@ -1,7 +1,8 @@
 import express from "express";
 import Controller from "../controllers/Controller.js";
 
-const router = express.Router(); // Initializes the express server router 
+const router = express.Router(); // Initializes the express server router
+
 // Sets the CRUD operations to the "/home" route which then will be managed in the Controller file
 router.route("/home") 
 .get(Controller.get) //Configures the "get" route
