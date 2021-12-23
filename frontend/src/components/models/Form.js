@@ -28,11 +28,11 @@ function Form(){
         // Renders the form component
         <div className="Form">
             <div className="card bg-primary">
-                <div class="card-header text-light text-center">Add</div>
+                <div className="card-header text-light text-center">Add</div>
                 <div className="card-body">
                     <form onSubmit={handleSubmit}>
                         <p className="card-text">
-                        <select class="form-select" aria-label="Default select example" name="state" onChange={(e)=>setState(e.target.value)}>
+                        <select className = "form-select" aria-label="Default select example" name="state" onChange={(e)=>setState(e.target.value)}>
                                     <option selected>Select State</option>
                                     <option value="Alabama">Alabama</option>
                                     <option value="Alaska">Alaska</option>

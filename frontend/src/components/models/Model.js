@@ -49,6 +49,7 @@ export default class Model extends React.Component{
                     <div className="card-body">
                         <form>
                             <p className="card-text">
+<<<<<<< HEAD
                             <select class="form-select" aria-label="Default select example" name="state" onChange={(e)=>this.handleOnChange(e.target.name,e.target.value)}>
                                     <option selected>{this.props.model.state}</option>
                                     <option value="Alabama">Alabama</option>
@@ -108,18 +109,27 @@ export default class Model extends React.Component{
                                     <option value="Wyoming">Wyoming</option>  
                                 </select>
                                 <div class="form-floating mb-3">
+=======
+                                <div className="form-floating mb-3">
+                                    <input type="text" class="form-control" id="floatingInput" 
+                                    placeholder={this.props.model.state} name="state" 
+                                    onChange={(e)=>this.handleOnChange(e.target.name,e.target.value)}/>
+                                    <label for="floatingInput">State: {this.props.model.state}</label>
+                                </div>
+                                <div className="form-floating mb-3">
+>>>>>>> 10dff1c0123e8e327886bb6afe2227d4763439f2
                                     <input type="date" class="form-control" id="floatingInput" 
                                     placeholder={this.props.model.date} name="date" 
                                     onChange={(e)=>this.handleOnChange(e.target.name,e.target.value)}/>
                                     <label for="floatingInput">Date: {this.props.model.date}</label>
                                 </div>
-                                <div class="form-floating mb-3">
+                                <div className="form-floating mb-3">
                                     <input type="number" class="form-control" id="floatingInput" 
                                     placeholder={this.props.model.cases} name="cases" 
                                     onChange={(e)=>this.handleOnChange(e.target.name,e.target.value)}/>
                                     <label for="floatingInput">Cases: {this.props.model.cases}</label>
                                 </div>
-                                <div class="form-floating mb-3">
+                                <div className="form-floating mb-3">
                                     <input 
                                     type="number" class="form-control" id="floatingInput" 
                                     placeholder={this.props.model.deaths} name="deaths" 
