@@ -1,9 +1,6 @@
 import React from "react";
 import List from "../models/List.js";
 export default class Data extends React.Component {
-    constructor(props) {
-        super(props);
-    }
     // This component renders the results of the user's seaarch
     render() {
         return(
