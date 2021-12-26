@@ -80,6 +80,8 @@ export default class DAO{
         return await this.db.insertOne(request); 
     }
     static async delete(id){
+        console.log(id);
+        
         // Deletes the requested data from the DATABASE and passed to the Repository back the status of the operation.
        return await this.db.deleteOne({"_id" :id}); 
     }

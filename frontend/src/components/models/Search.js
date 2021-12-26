@@ -16,7 +16,7 @@ export default class Search extends React.Component {
         }
         inputData[key] = value;
         this.setState({inputData:inputData});
-        
+        console.log(this.state.inputData);  
     }
     handleSubmit (e) {
         
@@ -28,9 +28,11 @@ export default class Search extends React.Component {
             request+=key+'='+value+'&'
           }
         }
+        console.log(request);
         (async () => {
             let response = await fetch(request); // Receives the response from the server regarding the submitted query
             response = await response.json(); // Converts the response into a JSON object
+            console.log(response);
             this.props.searchResults(response); // Sends the response back to the user
         })();
         this.setState({inputData:[]}); // Resets the query
@@ -43,7 +45,7 @@ export default class Search extends React.Component {
                 <div className="card bg-success">
                 <div class="card-header text-light text-center">Search</div>
                     <div className="card-body">
-                        <form onSubmit={this.handleSubmit}>
+                        <form onSubmit={(e)=>this.handleSubmit(e)}>
                             <p className="card-text">
                                 <select className="form-select" aria-label="Default select example" name="state" onChange={(e)=>this.handleOnChange(e.target.name,e.target.value)}>
                                     <option selected>Select State</option>

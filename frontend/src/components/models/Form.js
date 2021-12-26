@@ -14,6 +14,7 @@ function Form(){
             "cases":cases, 
             "deaths":deaths 
         };
+        console.log(data);
         e.target.reset(); // Resets ther form data 
         fetch('http://localhost:8000/api/home',{ // Fetches the POST route from the server
             method: 'POST',

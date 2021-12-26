@@ -12,11 +12,14 @@ export default class Model extends React.Component{
         };
     }
     handleOnChange (key,value) {
-        const data = [];
+        const data = this.state;
         data[key] = value;
+        console.log(data);
         this.setState(data);
     }
-    handleSubmit(key){
+    handleSubmit(e,key){
+        
+        console.log(key);
         if(key === "DELETE"){
             fetch('http://localhost:8000/api/home?_id=' + this.props.model._id,{
             method: "DELETE",
@@ -26,18 +29,19 @@ export default class Model extends React.Component{
             });
         }
         else if (key === "PUT"){
+            e.preventDefault();
             fetch('http://localhost:8000/api/home',{
                 method: "PUT",
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     "_id":this.props.model._id,
                     "state":this.state.state,
-                    "date":this.state.date,
+                    "date":new Date(this.state.date).toLocaleDateString('en-GB'),
                     "cases":this.state.cases,
                     "deaths":this.state.deaths
                 })
                 }).then( async (response) => {
-                    let res = response;
+                    let res = await response.json();
                     console.log(res);
             });
         }
@@ -108,12 +112,6 @@ export default class Model extends React.Component{
                                     <option value="Wyoming">Wyoming</option>  
                                 </select>
                                 <div className="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingInput" 
-                                    placeholder={this.props.model.state} name="state" 
-                                    onChange={(e)=>this.handleOnChange(e.target.name,e.target.value)}/>
-                                    <label for="floatingInput">State: {this.props.model.state}</label>
-                                </div>
-                                <div className="form-floating mb-3">
 
                                     <input type="date" class="form-control" id="floatingInput" 
                                     placeholder={this.props.model.date} name="date" 
@@ -134,8 +132,8 @@ export default class Model extends React.Component{
                                     <label for="floatingInput">Deaths: {this.props.model.deaths}</label>
                                 </div>
                             </p>
-                            <button className="btn btn-danger" name="DELETE" onClick={(e)=>this.handleSubmit(e.target.name)}>Delete</button>
-                            <button className="btn btn-primary" name="PUT" onClick={(e)=>this.handleSubmit(e.target.name)}>Update</button>
+                            <button className="btn btn-danger" name="DELETE" onClick={(e)=>this.handleSubmit(e,e.target.name)}>Delete</button>
+                            <button className="btn btn-primary" name="PUT" onClick={(e)=>this.handleSubmit(e,e.target.name)}>Update</button>
                         </form>
                     </div> 
                 </div>
