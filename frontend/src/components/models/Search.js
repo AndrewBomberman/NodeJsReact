@@ -43,12 +43,12 @@ export default class Search extends React.Component {
         return(
             <div className="Search">
                 <div className="card bg-success">
-                <div class="card-header text-light text-center">Search</div>
+                <div className="card-header text-light text-center">Search</div>
                     <div className="card-body">
                         <form onSubmit={(e)=>this.handleSubmit(e)}>
-                            <p className="card-text">
-                                <select className="form-select" aria-label="Default select example" name="state" onChange={(e)=>this.handleOnChange(e.target.name,e.target.value)}>
-                                    <option selected>Select State</option>
+                            <div className="card-text">
+                                <select className="form-select" aria-label="Default select example" defaultValue = "Select state"name="state" onChange={(e)=>this.handleOnChange(e.target.name,e.target.value)}>
+                                    <option defaultValue = "Select state">Select state</option>
                                     <option value="Alabama">Alabama</option>
                                     <option value="Alaska">Alaska</option>
                                     <option value="Arizona">Arizona</option>
@@ -106,19 +106,19 @@ export default class Search extends React.Component {
                                     <option value="Wyoming">Wyoming</option>  
                                 </select>
                                 <div className="form-floating mb-3">
-                                    <input type="date" class="form-control" id="floatingInput" placeholder="Date" name="date" onChange={(e)=>this.handleOnChange(e.target.name,e.target.value)}/>
-                                    <label for="floatingInput">Select Date:</label>
+                                    <input type="date" className="form-control" id="floatingInput" placeholder="Date" name="date" onChange={(e)=>this.handleOnChange(e.target.name,e.target.value)}/>
+                                    <label>Select Date:</label>
                                 </div>
                                 
                                 <div className="form-floating mb-3">
-                                    <input type="number" min= "0"class="form-control" id="floatingInput" placeholder="Cases" name="cases" onChange={(e)=>this.handleOnChange(e.target.name,e.target.value)}/>
-                                    <label for="floatingInput">Input Cases:</label>
+                                    <input type="number" min= "0"className="form-control" id="floatingInput" placeholder="Cases" name="cases" onChange={(e)=>this.handleOnChange(e.target.name,e.target.value)}/>
+                                    <label>Input Cases:</label>
                                 </div>
                                 <div className="form-floating mb-3">
-                                    <input type="number" min= "0"class="form-control" id="floatingInput" placeholder="Deaths" name="deaths" onChange={(e)=>this.handleOnChange(e.target.name,e.target.value)}/>
-                                    <label for="floatingInput">Input Deaths:</label>
+                                    <input type="number" min= "0"className="form-control" id="floatingInput" placeholder="Deaths" name="deaths" onChange={(e)=>this.handleOnChange(e.target.name,e.target.value)}/>
+                                    <label>Input Deaths:</label>
                                 </div>
-                            </p>
+                            </div>
                             <button className="btn btn-dark">Search</button>
                         </form>
                     </div> 

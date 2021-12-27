@@ -8,7 +8,7 @@ export default class List extends React.Component {
                 {this.props.list.map(model => {
                     if(model._id){
                         return(
-                            <div className="col-lg-4">
+                            <div className="col-lg-4" key = {model._id}>
                                 <Model model = {model}/>
                             </div>
                         )

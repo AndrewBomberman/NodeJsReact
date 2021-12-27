@@ -52,9 +52,9 @@ export default class Model extends React.Component{
                 <div className="card bg-dark">
                     <div className="card-body">
                         <form>
-                            <p className="card-text">
-                            <select class="form-select" aria-label="Default select example" name="state" onChange={(e)=>this.handleOnChange(e.target.name,e.target.value)}>
-                                    <option selected>{this.props.model.state}</option>
+                            <div className="card-text">
+                            <select className="form-select" aria-label="Default d select example" name="state" onChange={(e)=>this.handleOnChange(e.target.name,e.target.value)}>
+                                    <option defaultValue = {this.props.model.state}>{this.props.model.state}</option>
                                     <option value="Alabama">Alabama</option>
                                     <option value="Alaska">Alaska</option>
                                     <option value="Arizona">Arizona</option>
@@ -113,25 +113,25 @@ export default class Model extends React.Component{
                                 </select>
                                 <div className="form-floating mb-3">
 
-                                    <input type="date" class="form-control" id="floatingInput" 
+                                    <input type="date" className="form-control" id="floatingInput" 
                                     placeholder={this.props.model.date} name="date" 
                                     onChange={(e)=>this.handleOnChange(e.target.name,e.target.value)}/>
-                                    <label for="floatingInput">Date: {this.props.model.date}</label>
+                                    <label>Date: {this.props.model.date}</label>
                                 </div>
                                 <div className="form-floating mb-3">
-                                    <input type="number" class="form-control" id="floatingInput" 
+                                    <input type="number" className="form-control" id="floatingInput" 
                                     placeholder={this.props.model.cases} name="cases" 
                                     onChange={(e)=>this.handleOnChange(e.target.name,e.target.value)}/>
-                                    <label for="floatingInput">Cases: {this.props.model.cases}</label>
+                                    <label>Cases: {this.props.model.cases}</label>
                                 </div>
                                 <div className="form-floating mb-3">
                                     <input 
-                                    type="number" class="form-control" id="floatingInput" 
+                                    type="number" className="form-control" id="floatingInput" 
                                     placeholder={this.props.model.deaths} name="deaths" 
                                     onChange={(e)=>this.handleOnChange(e.target.name,e.target.value)}/>
-                                    <label for="floatingInput">Deaths: {this.props.model.deaths}</label>
+                                    <label>Deaths: {this.props.model.deaths}</label>
                                 </div>
-                            </p>
+                            </div>
                             <button className="btn btn-danger" name="DELETE" onClick={(e)=>this.handleSubmit(e,e.target.name)}>Delete</button>
                             <button className="btn btn-primary" name="PUT" onClick={(e)=>this.handleSubmit(e,e.target.name)}>Update</button>
                         </form>

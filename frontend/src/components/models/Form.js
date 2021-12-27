@@ -32,9 +32,9 @@ function Form(){
                 <div className="card-header text-light text-center">Add</div>
                 <div className="card-body">
                     <form onSubmit={handleSubmit}>
-                        <p className="card-text">
+                        <div className="card-text">
                         <select className = "form-select" aria-label="Default select example" name="state" onChange={(e)=>setState(e.target.value)}>
-                                    <option selected>Select State</option>
+                                    <option defaultValue = "Select state">Select state</option>
                                     <option value="Alabama">Alabama</option>
                                     <option value="Alaska">Alaska</option>
                                     <option value="Arizona">Arizona</option>
@@ -91,19 +91,19 @@ function Form(){
                                     <option value="Wisconsin">Wisconsin</option>
                                     <option value="Wyoming">Wyoming</option>  
                                 </select>
-                            <div class="form-floating mb-3">
-                                <input type="date" class="form-control" id="floatingInput" placeholder="Date" name="date" required onChange={(e)=>setDate(e.target.value)}/>
-                                <label for="floatingInput">Select Date:</label>
+                            <div className="form-floating mb-3">
+                                <input type="date" className="form-control" id="floatingInput" placeholder="Date" name="date" required onChange={(e)=>setDate(e.target.value)}/>
+                                <label>Select Date:</label>
                             </div>
-                            <div class="form-floating mb-3">
-                                <input type="number" min="0" class="form-control" id="floatingInput" placeholder="Cases" name="cases" required onChange={(e)=>setCases(e.target.value)}/>
-                                <label for="floatingInput">Input Cases:</label>
+                            <div className="form-floating mb-3">
+                                <input type="number" min="0" className="form-control" id="floatingInput" placeholder="Cases" name="cases" required onChange={(e)=>setCases(e.target.value)}/>
+                                <label>Input Cases:</label>
                             </div>
-                            <div class="form-floating mb-3">
-                                <input type="number" min="0" class="form-control" id="floatingInput" placeholder="Deaths" name="deaths" required onChange={(e)=>setDeaths(e.target.value)}/>
-                                <label for="floatingInput">Input Deaths:</label>
+                            <div className="form-floating mb-3">
+                                <input type="number" min="0" className="form-control" id="floatingInput" placeholder="Deaths" name="deaths" required onChange={(e)=>setDeaths(e.target.value)}/>
+                                <label>Input Deaths:</label>
                             </div> 
-                        </p>
+                        </div>
                         <button className="btn btn-dark" >Add</button>
                     </form>
                 </div> 
