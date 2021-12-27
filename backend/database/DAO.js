@@ -32,7 +32,8 @@ export default class DAO{
 
                 //If the query has only "cases" then this query will be resolved.
                 // Retreives all the distinct states with the number of covid cases greater than the value passed in the request.
-                list =  await (await this.db.distinct("state",{"$expr" : {"$gt" : [{"$toInt" :"$cases"} , parseInt(request.cases,10)]}}));
+                list =  await this.db.distinct("state",{"$expr" : {"$gt" : [{"$toInt" :"$cases"} , parseInt(request.cases,10)]}});
+                
                 results = list.length; // Gets the total number of states
             }
         }
